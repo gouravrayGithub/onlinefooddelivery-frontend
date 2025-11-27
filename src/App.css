@@ -1,22 +1,39 @@
 .app {
   min-height: 100vh;
-  background: linear-gradient(135deg, #ffedd5, #fde68a);
+  background:
+    radial-gradient(circle at top left, #fed7aa 0, transparent 55%),
+    radial-gradient(circle at bottom right, #fef3c7 0, transparent 55%),
+    #f9fafb;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 40px 16px 80px;
   color: #1f2937;
 }
 
 .hero {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto 32px;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
   border-radius: 20px;
-  padding: 32px;
+  padding: 28px 32px 26px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #111827;
 }
 
 .eyebrow {
@@ -28,7 +45,7 @@
 }
 
 .hero h1 {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   margin: 0 0 12px;
 }
 
@@ -40,14 +57,15 @@
 .nav {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .nav button {
   flex: 1;
   padding: 10px 0;
   border: none;
-  border-radius: 30px;
-  background: #fff7ed;
+  border-radius: 999px;
+  background: #fffbeb;
   color: #1f2937;
   font-weight: 600;
   cursor: pointer;
@@ -56,21 +74,32 @@
 
 .nav button.active,
 .nav button:hover {
-  background: #fb923c;
+  background: #f97316;
   color: #fff;
   box-shadow: 0 8px 20px rgba(251, 146, 60, 0.35);
 }
 
 .content {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card.stretch {
+  grid-column: span 2;
+}
+
 .card {
-  background: rgba(255, 255, 255, 0.95);
+  background: #ffffff;
   border-radius: 16px;
   padding: 28px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  border: 1px solid #e5e7eb;
 }
 
 .card-header h2 {
@@ -98,6 +127,10 @@
 
 .list-row:last-child {
   border-bottom: none;
+}
+
+.list-row:hover {
+  background: #f9fafb;
 }
 
 .price {
@@ -151,6 +184,73 @@
   transform: translateY(-1px);
 }
 
+.primary-btn:disabled {
+  background: #fed7aa;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.secondary-btn {
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+.secondary-btn:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+}
+
+.login-state {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.error {
+  color: #dc2626;
+  margin-top: 10px;
+}
+
+.info {
+  margin-top: 10px;
+  color: #0f172a;
+  font-size: 0.9rem;
+}
+
+.order-row {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.order-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.badge-success {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.badge-warning {
+  background: #fff7ed;
+  color: #b45309;
+}
+
 @media (max-width: 640px) {
   .hero {
     padding: 24px;
@@ -162,5 +262,9 @@
 
   .card {
     padding: 20px;
+  }
+
+  .card.stretch {
+    grid-column: span 1;
   }
 }
